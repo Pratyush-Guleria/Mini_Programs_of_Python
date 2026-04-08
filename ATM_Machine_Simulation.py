@@ -1,7 +1,7 @@
 '''
 
-In this i am gonna make a ATM Machine Simulation without using loops, It is goona be just a simple version.
-So there will be no Edge cases will be covered.
+In this project, I am building an ATM Machine Simulation without using loops. 
+It is a simple version, so no edge cases will be covered.
 
 '''
 # This is correct pin
