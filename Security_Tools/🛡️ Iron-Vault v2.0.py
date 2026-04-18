@@ -1,9 +1,24 @@
+import json
+import os
+
+def save_data(vault_dict):
+    with open("vault.json", "w") as f:
+        json.dump(vault_dict, f, indent=4)
+    print("\n[✔] Data Encrypted & Saved to vault.json! 🛡️")
+
+
+def load_data():
+    if os.path.exists("vault.json"):
+        with open("vault.json", "r") as f:
+            return json.load(f)
+    return {}  # Agar file nahi hai, toh khali dictionary return karo
+
 # Here is a master pin 
 master_pin = 129
 
 # This is for UX
 print("\n")
-print("--- 🛡️ IRON-VAULT v1.0 ACCESS ---")
+print("--- 🛡️ IRON-VAULT v2.0 ACCESS ---")
 print("\n")
 
 # The action menu
@@ -50,7 +65,7 @@ while True:
 
 
 # Dictionary
-value = {}
+value = load_data()
 
 # Loop
 while True: 
@@ -85,6 +100,9 @@ while True:
         secret_data = input(f"Enter secret for {key} : ").strip()
 
         value[key] = secret_data
+
+        save_data(value)
+
         print(f"✅ {key} has been locked in the vault")
 
     # If user will choose option 2
@@ -103,6 +121,7 @@ while True:
     # If user will choose option 3
 
     if select_options == 3:
+        save_data(value)
         print("Exit & Lock Value Successfully 🔒")
         break 
 
