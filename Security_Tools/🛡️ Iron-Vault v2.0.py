@@ -11,7 +11,7 @@ def load_data():
     if os.path.exists("vault.json"):
         with open("vault.json", "r") as f:
             return json.load(f)
-    return {}  # Agar file nahi hai, toh khali dictionary return karo
+    return {}  # If there is no file, then return to empty dictionary 
 
 # Here is a master pin 
 master_pin = 129
